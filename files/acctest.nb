@@ -1,0 +1,223 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7537,        213]
+NotebookOptionsPosition[      7061,        191]
+NotebookOutlinePosition[      7415,        207]
+CellTagsIndexPosition[      7372,        204]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Dynamic", "[", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"realVel", "[", "t", "]"}], ",", 
+         RowBox[{"calcVel", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "endTime"}], "}"}]}], "]"}], "]"}], ",", 
+    RowBox[{"Dynamic", "[", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"realPos", "[", "t", "]"}], ",", 
+         RowBox[{"calcPos", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "endTime"}], "}"}]}], "]"}], "]"}]}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.65579085617163*^9, 3.655790870089541*^9}, {
+   3.655790962011989*^9, 3.655790970538246*^9}, {3.6557917971567993`*^9, 
+   3.655791800192565*^9}, {3.65579185824971*^9, 3.655791860232883*^9}, {
+   3.655796645322172*^9, 3.6557966475026207`*^9}, 3.655796698446299*^9, {
+   3.655796753110165*^9, 3.655796766269905*^9}, {3.6557968042643223`*^9, 
+   3.6557968076487722`*^9}, {3.655796987088771*^9, 3.6557969912104597`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{DynamicBox[
+    ToBoxes[
+     Plot[{
+       $CellContext`realVel[$CellContext`t], 
+       $CellContext`calcVel[$CellContext`t]}, {$CellContext`t, 
+       0, $CellContext`endTime}], StandardForm]],DynamicBox[
+    ToBoxes[
+     Plot[{
+       $CellContext`realPos[$CellContext`t], 
+       $CellContext`calcPos[$CellContext`t]}, {$CellContext`t, 
+       0, $CellContext`endTime}], StandardForm]]},
+  "RowDefault"]], "Output",
+ CellChangeTimes->{
+  3.655790870431533*^9, 3.6557909707476788`*^9, 3.655791800741035*^9, {
+   3.655791835489483*^9, 3.655791860435058*^9}, {3.655796508103643*^9, 
+   3.655796510317971*^9}, {3.6557966460929823`*^9, 3.6557966479741783`*^9}, 
+   3.655796718482799*^9, 3.655796766561854*^9, 3.655796808075694*^9, 
+   3.655797010197652*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", "t_", "]"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"3", "*", "t"}], "]"}]}], 
+     RowBox[{"Cos", "[", 
+      RowBox[{"2.1", "*", "t"}], "]"}]}], "+", 
+    RowBox[{"3", "t"}]}]}], ";", 
+  RowBox[{"sampleRate", "=", "1000"}], ";", 
+  RowBox[{"endTime", "=", "10"}], ";", 
+  RowBox[{"rand", "=", ".03"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"realPos", "[", "t_", "]"}], "=", 
+   RowBox[{"P", "[", "t", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"realVel", "[", "t_", "]"}], "=", 
+   RowBox[{
+    RowBox[{"P", "'"}], "[", "t", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"realAcc", "[", "t_", "]"}], "=", 
+   RowBox[{
+    RowBox[{"P", "''"}], "[", "t", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"calcVel", "[", "t_", "]"}], "=", 
+   RowBox[{"Re", "[", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"realAcc", "[", 
+          RowBox[{"i", "/", "sampleRate"}], "]"}], "+", 
+         RowBox[{"RandomReal", "[", "rand", "]"}]}], ")"}], "/", 
+       "sampleRate"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "0", ",", 
+        RowBox[{
+         RowBox[{"t", "*", "sampleRate"}], "-", "1"}]}], "}"}]}], "]"}], 
+    "]"}]}], ";", 
+  RowBox[{
+   RowBox[{"calcPos", "[", "t_", "]"}], "=", 
+   RowBox[{"Re", "[", 
+    RowBox[{
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"realAcc", "[", 
+           RowBox[{"i", "/", "sampleRate"}], "]"}], "+", 
+          RowBox[{"RandomReal", "[", "rand", "]"}]}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"t", "*", "sampleRate"}], "-", "1", "-", "i"}], ")"}], 
+          "/", "sampleRate"}], ")"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", 
+         RowBox[{
+          RowBox[{"t", "*", "sampleRate"}], "-", "1"}]}], "}"}]}], "]"}], "/",
+      "sampleRate"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.655790686546843*^9, 3.655790689309496*^9}, {
+   3.65579075661663*^9, 3.655790813077628*^9}, {3.655790858610508*^9, 
+   3.65579086236207*^9}, {3.655790941364271*^9, 3.655790946553542*^9}, {
+   3.6557918156422586`*^9, 3.6557918793728952`*^9}, {3.655796479058259*^9, 
+   3.655796499523937*^9}, {3.65579657339633*^9, 3.655796653117216*^9}, {
+   3.655796684902663*^9, 3.655796722453412*^9}, {3.655796833465499*^9, 
+   3.655796969994028*^9}, {3.655797000787767*^9, 3.6557970037709513`*^9}, {
+   3.6557970399995003`*^9, 3.655797123742157*^9}, {3.65579723430269*^9, 
+   3.655797257635561*^9}, {3.655797311741778*^9, 3.655797354729783*^9}, 
+   3.655828618564776*^9, {3.655837922831271*^9, 3.6558379933614407`*^9}, {
+   3.6558380379132442`*^9, 3.6558380701124687`*^9}, {3.655838120055152*^9, 
+   3.6558381439903107`*^9}, {3.6558382670245237`*^9, 3.655838310138163*^9}, 
+   3.655838341794197*^9, {3.65583843937521*^9, 3.655838492195882*^9}, {
+   3.6558385504266443`*^9, 3.6558386211634207`*^9}, {3.6558386695320683`*^9, 
+   3.655838766005584*^9}, {3.65583880248135*^9, 3.65583885611891*^9}, {
+   3.6558388865435743`*^9, 3.6558389605126753`*^9}, {3.655839294260337*^9, 
+   3.655839296321292*^9}, {3.655839398227746*^9, 3.655839408725935*^9}, {
+   3.655839537327215*^9, 3.65583957746634*^9}, {3.6558396104042*^9, 
+   3.655839620603451*^9}, 3.6558396754500017`*^9, {3.655839711592188*^9, 
+   3.655839771329348*^9}, {3.655839821213352*^9, 3.655839855775693*^9}, {
+   3.655839888347081*^9, 3.655839888761718*^9}, {3.6558768305282907`*^9, 
+   3.6558768322918797`*^9}, {3.6559218564564333`*^9, 3.655921881152979*^9}, {
+   3.655926951474761*^9, 3.655926995165639*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"P", "''"}], "[", "t", "]"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "endTime"}], "}"}]}], "]"}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.655838839853922*^9, 3.6558388413130713`*^9}, {
+  3.655839332610939*^9, 3.65583933272902*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Plot[{
+     Derivative[2][$CellContext`P][$CellContext`t]}, {$CellContext`t, 
+     0, $CellContext`endTime}], StandardForm],
+  ImageSizeCache->{360., {105., 110.}}]], "Output",
+ CellChangeTimes->{3.655838842158049*^9, 3.6558393329076443`*^9}]
+}, Open  ]]
+},
+WindowSize->{1419, 952},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1163, 28, 28, "Input"],
+Cell[1746, 52, 786, 18, 422, "Output"]
+}, Open  ]],
+Cell[2547, 73, 3811, 92, 172, "Input"],
+Cell[CellGroupData[{
+Cell[6383, 169, 379, 11, 28, "Input"],
+Cell[6765, 182, 280, 6, 230, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

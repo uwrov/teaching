@@ -1,0 +1,21 @@
+How to Install Conda and Use it with OpenCV:
+
+1. Download the most recent appropriate version of Miniconda for your device from this page : http://repo.continuum.io/miniconda/
+
+2. 	Windows: Run the downloaded exe file.
+	Mac: In terminal, go to the directory you downloaded miniconda to, and use this console 		command: bash miniconda.sh -b
+
+3. Find the Miniconda install folder
+
+export PATH=$HOME/miniconda2/bin:$PATH
+
+conda update --yes --all
+
+conda install opencv
+
+conda create -new opencv
+
+look in the miniconda install folder under environments (envs) to see what the name of the environment is in the folder and activate it using the command:
+source activate ew
+
+export the environment and name it using the command: conda env export >opencvEnv.yml

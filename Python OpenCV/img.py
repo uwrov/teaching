@@ -13,7 +13,7 @@ import collections
 # interact with.
 
 # To test it out, get somehting kinda light green and longish, and wave it in front of the camera
-# while running this.
+# while running this. (As it currently stands, you have to use ctrl-c to terminate.)
 
 # Usage:
 # 
@@ -259,7 +259,7 @@ while (cap.isOpened()):
     # Quit on 'q' press
     press = cv2.waitKey(10);
     if press & 0xFF == ord('q'):
-        pass
+        break
         
     # whoops, it somehow got way off screen, reset everything
     if ball_pos[0] < 0 or ball_pos[0] > 1000 or ball_pos[1] < 0 or ball_pos[1] > 1000:

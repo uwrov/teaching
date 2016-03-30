@@ -8,7 +8,7 @@
 - more frequently meeting, less time per session 
 - idea of “self teaching” and pairing people in groups 
 
-#Relocation of meeting space
+#Relocation of Meeting Space
 - Reserve large lecture hall central campus, first couple of meetings 
 - No true necessity to meet down in the current lab
 - Make classroom reservations again central campus (e.g. Savery)
@@ -24,3 +24,12 @@
 - qualifications: programming since beginning of high school
 - doesn’t require creation of training materials
 - expectation for preliminary meetings IDE setup, hello world
+
+#Expectations for next year
+- scrapping current code base, because nobody has solid understanding
+- flipped classroom experience (material read at home, coding with assistance here)
+- sticking with C#, transitions to new languages
+- TA type roles for teaching, compared to lecture
+- specificity in tasks, less open teaching
+- team size around 10 people 
+- recruiting from places where we know people’s competence (class, departments)
